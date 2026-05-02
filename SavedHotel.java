@@ -18,7 +18,6 @@ public class SavedHotel {
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 
-    // getters setters
     public Long getId() { return id; }
 
     public User getUser() { return user; }
