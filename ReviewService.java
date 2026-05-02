@@ -13,12 +13,10 @@ public class ReviewService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    // ✅ SAVE NEW REVIEW
     public void saveReview(Review review) {
         reviewRepository.save(review);
     }
 
-    // ✅ DELETE
     public void deleteReviewById(Long id) {
         if (reviewRepository.existsById(id)) {
             reviewRepository.deleteById(id);
@@ -26,13 +24,11 @@ public class ReviewService {
             throw new RuntimeException("Review not found");
         }
     }
-
-    // ✅ GET BY ID
+    
     public Review getReviewById(Long id) {
         return reviewRepository.findById(id).orElse(null);
     }
 
-    // ✅ UPDATE (SAFE VERSION)
     public void updateReview(Review updatedReview) {
 
         if (!reviewRepository.existsById(updatedReview.getId())) {
